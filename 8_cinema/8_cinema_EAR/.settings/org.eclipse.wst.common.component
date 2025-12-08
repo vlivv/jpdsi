@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                
+    
+    
+    <wb-module deploy-name="8_cinema">
+                                
+        
+        
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="8_cinema_ejb.jar" deploy-path="/" handle="module:/resource/8_cinema_ejb/8_cinema_ejb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="8_cinema_web.war" deploy-path="/" handle="module:/resource/8_cinema_web/8_cinema_web">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                            
+    
+    
+    </wb-module>
+            
+
+
+</project-modules>
