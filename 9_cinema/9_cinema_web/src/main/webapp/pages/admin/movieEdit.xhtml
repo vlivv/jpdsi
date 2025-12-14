@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+    <f:viewAction action="#{movieEditBB.onLoad()}" />
+</f:metadata>
+
+<h:head>
+    <meta charset="utf-8"/>
+    <title>#{txtAdmin.pageTitle} - #{txtMovieList.editMovie}</title>
+</h:head>
+
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+    <p:panel toggleable="true" header="#{txtMovieList.editMovie}">
+
+        <h:form rendered="#{movieEditBB.movie != null}">
+            <h:panelGrid columns="3" cellpadding="5">
+
+                <h:outputLabel for="m-title" value="#{txtMovieList.title}:" />
+                <p:inputText id="m-title"
+                             value="#{movieEditBB.movie.title}"
+                             required="true"
+                             requiredMessage="Please enter a title"
+                             validatorMessage="Maximum 200 characters">
+                    <f:validateLength maximum="200" />
+                </p:inputText>
+                <p:message for="m-title" display="icon"/>
+
+                <h:outputLabel for="m-desc" value="#{txtMovieList.description}:" />
+                <p:inputTextarea id="m-desc"
+                                 value="#{movieEditBB.movie.description}"
+                                 autoResize="true"
+                                 rows="4" cols="40" />
+                <p:message for="m-desc" display="icon"/>
+
+                <h:outputLabel for="m-duration" value="#{txtMovieList.duration}:" />
+                <p:inputText id="m-duration"
+                             value="#{movieEditBB.movie.durationMin}"
+                             required="true"
+                             requiredMessage="Please enter duration in minutes"
+                             converterMessage="Please enter an integer value">
+                    <f:convertNumber integerOnly="true" />
+                    <f:validateLongRange minimum="1" />
+                </p:inputText>
+                <p:message for="m-duration" display="icon"/>
+
+
+                <h:outputLabel for="m-age" value="#{txtMovieList.ageRating}:" />
+                <p:inputText id="m-age"
+                             value="#{movieEditBB.movie.ageRating}"
+                             maxlength="10" />
+                <p:message for="m-age" display="icon"/>
+
+              
+                <h:outputLabel for="m-genre" value="#{txtMovieList.genre}:" />
+                <p:inputText id="m-genre"
+                             value="#{movieEditBB.movie.genre}"
+                             maxlength="100" />
+                <p:message for="m-genre" display="icon"/>
+
+               
+                <h:outputLabel for="m-director" value="#{txtMovieList.director}:" />
+                <p:inputText id="m-director"
+                             value="#{movieEditBB.movie.director}"
+                             maxlength="150" />
+                <p:message for="m-director" display="icon"/>
+
+               
+                <h:outputLabel for="m-language" value="#{txtMovieList.language}:" />
+                <p:inputText id="m-language"
+                             value="#{movieEditBB.movie.language}"
+                             maxlength="50" />
+                <p:message for="m-language" display="icon"/>
+
+            </h:panelGrid>
+
+            <p:messages id="msgs"/>
+
+            <p:commandButton value="Save"
+                             action="#{movieEditBB.saveData()}"
+                             style="margin-right: 1em;"
+                             update="@form" />
+
+            <p:button value="Cancel" outcome="movieList" />
+        </h:form>
+
+    </p:panel>
+
+</h:body>
+</html>

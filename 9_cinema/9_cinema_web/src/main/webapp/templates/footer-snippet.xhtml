@@ -1,0 +1,12 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="jakarta.faces.facelets"
+	xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core">
+	
+	<h:form>
+		<h:commandLink action="/pages/user/movieList?faces-redirect=true" value="#{txtMain.movieListPage}" /> | 
+		<h:commandLink action="/pages/manager/page?faces-redirect=true" value="#{txtMain.managerPage}" /> | 
+		<h:commandLink action="/pages/admin/page?faces-redirect=true" value="#{txtMain.adminPage}" /> 
+	</h:form>
+
+</ui:composition>
